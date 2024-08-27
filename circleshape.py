@@ -16,3 +16,13 @@ class CircleShape(pygame.sprite.Sprite):
 
     def update(self, dt):
         pass
+
+    def hasCollided(self, other_circle):
+        # Calculate the distance between the two circle centers
+        distance = self.position.distance_to(other_circle.position)
+        
+        # Check if the distance is less than the sum of the radii
+        if distance <= self.radius + other_circle.radius:
+            return True
+        else:
+            return False
